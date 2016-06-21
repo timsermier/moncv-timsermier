@@ -1,4 +1,4 @@
 $(document).ready(function(){
   'use strict';
-  $('a').smoothScroll();
+  $('a').smoothScroll({speed: 2000});
 });
