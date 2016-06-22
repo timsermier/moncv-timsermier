@@ -172,3 +172,12 @@ gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras'], () => {
 gulp.task('default', ['clean'], () => {
   gulp.start('build');
 });
+
+var deploy = require('gulp-deploy-git');
+gulp.task('deploy', function() {
+  return gulp.src('**/*',  { read: false, cwd: 'dist'  })
+    .pipe(deploy({
+      repository: 'git@github.com:heg-web/moncv-timsermier.git',
+      remoteBranch:   'gh-pages'
+    }))
+});
