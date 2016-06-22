@@ -2,12 +2,34 @@ $(document).ready(function(){
   'use strict';
   $('a').smoothScroll({speed: 2000});
   
-  angular.module("app", ["chart.js"]).controller("RadarCtrl", function ($scope) {
-  $scope.labels =["Eating", "Drinking", "Sleeping", "Designing", "Coding", "Cycling", "Running"];
-
-  $scope.data = [
-    [65, 59, 90, 81, 56, 55, 40],
-    [28, 48, 40, 19, 96, 27, 100]
-  ];
+ var ctx = document.getElementById("myChart");
+var myChart = new Chart(ctx, {
+    type: 'pie',
+    data: {
+        datasets: [{
+        data: [
+            9,
+            9,
+            7,
+            6,
+            4
+        ],
+        backgroundColor: [
+            "#FF6384",
+            "#4BC0C0",
+            "#FFCE56",
+            "#E7E9ED",
+            "#36A2EB"
+        ],
+        label: 'My dataset' // for legend
+    }],
+    labels: [
+        "Programmation",
+        "Réseau",
+        "Base de données",
+        "Virtualisation",
+        "Autres"
+    ]
+    }
 });
 });
