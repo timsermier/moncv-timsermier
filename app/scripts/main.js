@@ -54,14 +54,14 @@ $(document).ready(function () {
                                 '#FFFFFF'
                             ],
                             hoverBackgroundColor: [
-                                backGroundColor
+                                borderColor
                                 ,'#FFFFFF'
                             ],
                             borderColor: [
                                 borderColor, '#FFFFFF'
                             ],
                             hoverBorderColor:[
-                                "rgba(0, 0, 0, 1)",'#FFFFFF'
+                                backGroundColor,'#FFFFFF'
                             ]
                             
                         }]
