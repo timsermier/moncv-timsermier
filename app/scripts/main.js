@@ -7,29 +7,39 @@ $(document).ready(function () {
             var progressValue = parseInt($(obj).find('div').attr('aria-valuenow'));
             var texte = $(obj).find('div').text();
             var idEle = $(obj).find('div').attr('id');
-            var newElement = $('<canvas data-toggle="modal" data-target="#myModal' + idEle + '" height="200" width="635px"></canvas>');
+            var newElement = $('<canvas data-toggle="modal" data-target="#myModal' + idEle + '" height="300" width="700px"></canvas>');
             var backGroundColor;
+            var borderColor;
             switch (idEle) {
                 case 'programmation':
-                    backGroundColor = '#5bc0de';
+                    backGroundColor = 'rgba(0, 113, 162, 0.4)';
+                    borderColor = 'rgba(0, 113, 162, 1)';
                     break;
                 case 'reseau':
-                    backGroundColor = '#5cb85c';
+                    backGroundColor = 'rgba(0, 150, 0, 0.4)';
+                    borderColor = 'rgba(0, 150, 0, 1)';
                     break;
                 case 'bdd':
-                    backGroundColor = '#d9534f';
+                    backGroundColor = 'rgba(215, 44, 44, 0.4)';
+                    borderColor = 'rgba(215, 44, 44, 1)';
                     break;
                 case 'virtualisation':
-                    backGroundColor = '#fdc236';
+                    backGroundColor = 'rgba(172, 160, 0, 0.4)';
+                    borderColor = 'rgba(172, 160, 0, 1)';
+                    break;
+                case 'web':
+                    backGroundColor = 'rgba(172, 160, 236, 0.4)';
+                    borderColor = 'rgba(172, 160, 236, 1)';
                     break;
                 case 'autres':
-                    backGroundColor = '#878B00';
+                    backGroundColor = 'rgba(130, 149, 38, 0.4)';
+                    borderColor = 'rgba(130, 149, 38, 1)';
                     break;
                 default:
                     backGroundColor = 'white';
             }
             $(obj).replaceWith(newElement);
-            $(newElement).wrap('<div class=\'col-md-6 col-xs-12 can\'></div>');
+            $(newElement).wrap('<div class=\'col-md-4 col-xs-12 can\'></div>');
             var myChart = new Chart(newElement, {
                 type: 'doughnut',
                 data: {
@@ -42,7 +52,18 @@ $(document).ready(function () {
                             backgroundColor: [
                                 backGroundColor,
                                 '#FFFFFF'
+                            ],
+                            hoverBackgroundColor: [
+                                backGroundColor
+                                ,'#FFFFFF'
+                            ],
+                            borderColor: [
+                                borderColor, '#FFFFFF'
+                            ],
+                            hoverBorderColor:[
+                                "rgba(0, 0, 0, 1)",'#FFFFFF'
                             ]
+                            
                         }]
                 },
                 options: {
