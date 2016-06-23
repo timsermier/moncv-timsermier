@@ -5,7 +5,7 @@ $(document).ready(function () {
     function createChart() {
         $('div.progress').each(function (i, obj) {
             var progressValue = parseInt($(obj).find('div').attr('aria-valuenow'));
-            var texte = $(obj).find('div').attr('Texte')
+            var texte = $(obj).find('div').text();
             var idEle = $(obj).find('div').attr('id');
             var newElement = $('<canvas height="200" width="635px"></canvas>');
             var backGroundColor = '#' + Math.floor(Math.random() * 16777215).toString(16);

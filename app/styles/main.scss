@@ -104,100 +104,15 @@ body {
         border-bottom: 0;
     }
 
-	.dynamicAlign{
-		text-align: right;
-	}
+    .dynamicAlign{
+        text-align: right;
+    }
 
 }
 
 @media screen and (min-width: 0px) and (max-width: 768px){
-	.dynamicAlign{
-		text-align: left;
-	}
-}
-
-@for $i from 1 through 100 {
-    .percentage-#{$i}:after {
-        $value: ($i * 1%);
-        width: $value;
-    }
-}
-
-dl {
-    display: flex;
-    background-color: white;
-    flex-direction: column;
-    width: 80%;
-    max-width: 700px;
-    position: relative;
-    padding: 10px;
-}
-
-dt {
-    align-self: flex-start;
-    width: 100%;
-    font-weight: 700;
-    display: block;
-    text-align: center;
-    font-size: 1.2em;
-    font-weight: 700;
-    margin-bottom: 20px;
-    margin-left: 130px;
-}
-
-.text {
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    height: 40px;
-    width: 130px;
-    background-color: white;
-    position: absolute;
-    left: 0;
-}
-
-.percentage {
-    font-size: .8em;
-    line-height: 1;
-    text-transform: uppercase;
-    width: 100%;
-    height: 40px;
-    margin-left: 130px;
-    background: repeating-linear-gradient(
-        to right,
-        #ddd,
-        #ddd 1px,
-        #fff 1px,
-        #fff 5%
-        );
-
-    &:after {
-        content: "";
-        display: block;
-        background-color: #ffe501;
-        width: 50px;
-        margin-bottom: 10px;
-        height: 90%;
-        position: relative;
-        top: 50%;
-        transform: translateY(-50%);
-        transition: background-color .3s ease;
-        cursor: pointer;
-    }
-    &:hover,
-        &:focus {
-        &:after {
-            background-color: #aaa; 
-        }
-    }
-}
-
-@for $i from 1 through 100 {
-    .percentage-#{$i} {
-        &:after {
-            $value: ($i * 1%);
-            width: $value;
-        }
+    .dynamicAlign{
+        text-align: left;
     }
 }
 
@@ -210,7 +125,7 @@ a.top {
 }
 
 a.topminus{
-	position: relative;
+    position: relative;
     top: 40px;
     display: block;
     height: 0;
@@ -223,11 +138,11 @@ a.topminus{
 }
 
 #marge{
-	margin-left: 15px;	
+    margin-left: 15px;	
 }
 
 .modal-body{
-	margin-left: -35px;
+    margin-left: -35px;
 }
 
 .clickable {
@@ -235,6 +150,6 @@ a.topminus{
 }
 
 .list-group-item-perso{
-	background-color: #D6D29D;
-	color: #878B00;
+    background-color: #D6D29D;
+    color: #878B00;
 }
