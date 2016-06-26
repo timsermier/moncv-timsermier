@@ -82,7 +82,7 @@ Avant tout, insérer les éléments dont on ne veut pas gérer la version dans l
 Ensuite lors de modifications sur les fichiers du projet, taper les commandes suivantes pour commiter le tout :
 
 	- git add . --> Permet de mettre les fichiers en mode "staged"
-	- git commit -m '<message>' --> Permet de valider les modifications des fichiers, de les "commiter"...** Attention les messages du commit doivent être explicites et exprimer clairement les modifications qui ont été apportées **
+	- git commit -m '<message>' --> Permet de valider les modifications des fichiers, de les "commiter"...**Attention les messages du commit doivent être explicites et exprimer clairement les modifications qui ont été apportées**
 
 Pour envoyer le tout sur le dossier distant de github.com, voici la manière la plus simple de le faire :
 
@@ -248,7 +248,18 @@ Puis créer les modals de cette manière
 	    </div>
 	</div>
                         
-
+### progressBar
+Si le javascript ne fonctionne pas, l'élément de base est une progressBar bootstrap.
+	Voici comment cette dernière s'implémente :
+	
+	<div class="progress">
+	   <div id="programmation" class="progress-bar" role="progressbar" aria-valuenow="80"
+	        aria-valuemin="0" aria-valuemax="100" style="width:80%" data-toggle="modal" data-target="#myModalprogrammation">Programmation      
+	   </div>
+	</div>
+La valeur de la progressBar est simplement définie dans l'attribut aria-valuenow
+	Le label qui s'affichera à l'écran est le texte entre les balises div progress-bar
+	 
 ## IDE
 Yo rafraîchissant directement la page, le choix de l'IDE s'est basé sur des critères comme l'auto-complétion, l'indentation automatique et la détection automatique des erreurs.
 
