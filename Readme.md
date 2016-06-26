@@ -103,3 +103,144 @@ Il existe également d'autres commandes git dont voici une courte liste descript
 	- git checkout --> Permet d'annuler le dernier commit
 	- git checkout branch --> Permet de changer de branche
 	- git rm --> Permet de supprimer des éléments
+
+## Les dépendances
+Voici la liste des dépendances utilisées dans ce projet :
+
+	- jquery-smooth-scroll
+	- bootswatch
+	- chart.js
+
+### Installation de dépendance
+
+	- Tout d'abord trouver le paquet désiré
+		- Une liste des paquets est disponible sur https://bower.io/search/
+	- Dans l'invite de commande, taper la commande suivante :
+		- bower install nom_du_paquet --save
+		- Si le paquet n'est pas disponible avec bootswatch, alors faire une recherche du paquet avec npm
+			- npm install nom_du_paquet --save
+		- Pour être sûr que la dépendance s'installe bien, taper la commande :
+			- gulp wiredep
+
+### jquery-smooth-scroll
+L'installation du smooth scroll se fait par la commande suivante :
+	
+	bower install jquery-smooth-scroll --save
+
+Pour faire fonctionner le smooth scroll, rien de plus simple :
+		
+	Dans le fichier main.js, insérer les lignes suivantes :
+	$(document).ready(function(){
+	'use strict';
+	$('a').smoothScroll();
+	});
+La première ligne permet simplement d'exécuter le code une fois que la page a été chargée
+	La ligne $('a').smoothScroll(); permet de mettre en oeuvre le smooth scroll.
+	Pour ralentir la vitesse, il suffit simplement d'insérer un chiffre entre les parenthèses de smoothScroll(); (plus le chiffre est grand plus la vitesse est faible).
+
+Voici la page de documentation complète : https://github.com/kswedberg/jquery-smooth-scroll
+
+
+### bootswatch
+L'installation de bootswatch se fait par la commande suivante :
+
+	bower install bootswatch --save
+
+Pour faire fonctionner bootswatch avec sass utiliser la documentation suivante : 
+	http://adam.merrifield.ca/2016/03/29/swiips-gulp-angular-and-bootswatch-sass-themes/
+
+En gros, il suffit d'ajouter ces lignes avant le code bower :
+	
+	@import '../../bower_components/bootswatch/sandstone/variables';
+	$icon-font-path: "../../bower_components/bootstrap-sass/assets/fonts/bootstrap/";
+	Attention à bien supprimer la ligne $navbar-inverse-link-color...
+	
+Puis cette ligne après le code bower
+	
+	@import '../../bower_components/bootswatch/sandstone/bootswatch';
+Remplacer sandstone par le theme souhaité (une liste des thèmes est disponbile ici : https://bootswatch.com/)
+
+### chart.js
+L'installation de chart.js se fait par la commande suivante :
+
+	bower install Chart.js --save
+
+Une documentation très complète est disponible ici : http://www.chartjs.org/docs/
+
+Voici le code utilisé pour le chart doughnut de ce projet :
+	
+	var myChart = new Chart(newElement, {
+                type: 'doughnut',
+                data: {
+                    labels: [
+                        texte, ''
+                    ],
+                    datasets: [
+                        {
+                            data: [progressValue, 100 - progressValue],
+                            backgroundColor: [
+                                backGroundColor,
+                                '#FFFFFF'
+                            ],
+                            hoverBackgroundColor: [
+                                borderColor
+                                ,'#FFFFFF'
+                            ],
+                            borderColor: [
+                                borderColor, '#FFFFFF'
+                            ],
+                            hoverBorderColor:[
+                                backGroundColor,'#FFFFFF'
+                            ]
+                            
+                        }]
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    responsive: true,
+                    tooltips: {
+                        enabled: false
+                    }
+                }
+            }
+
+Ce code est à insérer dans le bloc $(document).ready(function (){...} de main.js
+
+## Bootstrap
+### Système de grille
+Le système de grille à 12 colonnes a été utilisé pour gérer l'affichage selon la taille de l'écran.
+
+Ainsi les adaptations suivantes ont été faites :
+
+	- Le menu de navigation est remplacé par un bouton sur petits écrans.
+	- La photo de profil vient en dessous du texte au lieu de rester à droite sur petits écrans
+	- Les graphes viennent l'un en dessous de l'autre sur petits écrans
+
+Ces adaptations en fonction de la taille de l'écran se fait principalement grâce à la classe col-tailleEcran-colonne
+	
+	col-xs-12 --> Le bloc prend 12 colonnes même sur petits écrans
+	col-md-6 col-xs-12 --> Le bloc prend 6 colonne sur écran de taille moyenne et 12 sur petit écran
+
+### Modal
+Lors de click sur les graphes, un modal affichant le détail des compétences s'affiche.
+
+Pour cela, il faut ajouter ces attributs sur la balise canvas :
+
+	data-toggle="modal" data-target="#myModalId"
+
+Puis créer les modals de cette manière
+
+	<div class="modal fade" id="myModalId" tabindex="-1" role="dialog" aria-labelledby="myModalLabelId" aria-hidden="true">
+	    <div class="modal-dialog" role="document">
+	        <div class="modal-content col-xs-12">
+	            <div class="modal-header">
+	                <h4 class="modal-title" id="myModalLabelId">Title</h4>
+	            </div>
+	            <div class="modal-body">
+	                content
+	            </div>
+	        </div>
+	    </div>
+	</div>
+                        
+
