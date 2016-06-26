@@ -1,4 +1,4 @@
-# (CV - Tim Sermier)
+# CV - Tim Sermier
 ## Installation de node.js
 
 Télécharger et installer node.js (https://nodejs.org/en/).
@@ -208,6 +208,10 @@ Voici le code utilisé pour le chart doughnut de ce projet :
 Ce code est à insérer dans le bloc $(document).ready(function (){...} de main.js
 
 ## Bootstrap
+Les documentations utilisées dans le cadre de se projet se trouve ici : 
+
+	http://getbootstrap.com/getting-started/
+	http://v4-alpha.getbootstrap.com/
 ### Système de grille
 Le système de grille à 12 colonnes a été utilisé pour gérer l'affichage selon la taille de l'écran.
 
@@ -245,3 +249,102 @@ Puis créer les modals de cette manière
 	</div>
                         
 
+## IDE
+Yo rafraîchissant directement la page, le choix de l'IDE s'est basé sur des critères comme l'auto-complétion, l'indentation automatique et la détection automatique des erreurs.
+
+Ainsi, NetBeans s'est révélé être parfait pour ce rôle-ci.
+
+Il a également utilisé l'outil de développement Chrome qui, une fois mappé au dossier local, permet de faire des modifications directement dans le navigateur Web.
+
+##JavaScript
+Comme vu précédemment, JavaScript a principalement été utilisé pour générer les graphes.
+
+Le but était de générer les graphes selon les progressBar déjà présentes dans le fichier html de base (en récupérant les valeurs et le label).
+
+Pour cela, il fallait utiliser la fonction jQuery "each" qui permettant de se positionner sur chaque div avec la classe "progress" :
+	
+	$('div.progress').each(function (i, obj) {...}
+Une fois dans la boucle, il fallait récupérer la valeur (définie par l'attribut aria-valuenow) et le text de la progressBar :
+	
+	var progressValue = parseInt($(obj).find('div').attr('aria-valuenow'));
+    var texte = $(obj).find('div').text();
+Il nous faut aussi ici récupérer l'id de la progressBar mais ceci uniquement afin d'ouvrir le modal correspondant :
+	
+	var idEle = $(obj).find('div').attr('id');
+Nous déclarons ensuite l'élément canvas qui va remplacer la progressBar :
+	
+	var newElement = $('<canvas data-toggle="modal" data-target="#myModal' + idEle + '" height="300" width="700px"></canvas>');
+	Les attributs permettront ensuite d'ouvrir le modal correspondant
+Dans le cadre de ce projet, il a été décidé de gérer les couleurs dynamiquement en fonction de la couleur des modals qui vont s'ouvrir. 
+	Pour cela, des variables backGroundColor et borderColor vont être remplies selon l'id qui a été récupéré précédemment :
+	
+	switch (idEle) {
+                case 'programmation':
+                    backGroundColor = 'rgba(0, 113, 162, 0.4)';
+                    borderColor = 'rgba(0, 113, 162, 1)';
+                    break;
+                case 'reseau':
+                    backGroundColor = 'rgba(0, 150, 0, 0.4)';
+                    borderColor = 'rgba(0, 150, 0, 1)';
+                    break;
+                case 'bdd':
+                    backGroundColor = 'rgba(215, 44, 44, 0.4)';
+                    borderColor = 'rgba(215, 44, 44, 1)';
+                    break;
+                case 'virtualisation':
+                    backGroundColor = 'rgba(172, 160, 0, 0.4)';
+                    borderColor = 'rgba(172, 160, 0, 1)';
+                    break;
+                case 'web':
+                    backGroundColor = 'rgba(172, 160, 236, 0.4)';
+                    borderColor = 'rgba(172, 160, 236, 1)';
+                    break;
+                case 'autres':
+                    backGroundColor = 'rgba(130, 149, 38, 0.4)';
+                    borderColor = 'rgba(130, 149, 38, 1)';
+                    break;
+                default:
+                    backGroundColor = 'white';
+            }
+Une fois toutes les valeurs de la progressBar récupérées, il faut maintenant remplacer cette dernière avec l'élément canvas déclaré précédemment :
+	
+	$(obj).replaceWith(newElement);
+Puis on décide d'entourer cet élément canvas avec une div qui nous permettra de gérer l'affichage avec bootstrap :
+	
+	$(newElement).wrap('<div class=\'col-md-4 col-xs-12 can\'></div>');
+Finalement, on construit le graphe en lui donnant la valeur et le label de la progressBar puis le nouvel élément créé :
+	
+	var myChart = new Chart(newElement, {
+                type: 'doughnut',
+                data: {
+                    labels: [
+                        texte, ''
+                    ],
+                    datasets: [
+                        {
+                            data: [progressValue, 100 - progressValue],
+                            backgroundColor: [
+                                backGroundColor,
+                                '#FFFFFF'
+                            ],
+                            hoverBackgroundColor: [
+                                borderColor
+                                ,'#FFFFFF'
+                            ],
+                            borderColor: [
+                                borderColor, '#FFFFFF'
+                            ],
+                            hoverBorderColor:[
+                                backGroundColor,'#FFFFFF'
+                            ]
+                            
+                        }]
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    responsive: true,
+                    tooltips: {
+                        enabled: false
+                    }
+                }
+            });
