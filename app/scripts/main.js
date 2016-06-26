@@ -1,6 +1,14 @@
 $(document).ready(function () {
     'use strict';
     $('a').smoothScroll({speed: 2000});
+	
+	$(function(){ 
+     var navMenu = $("#myNavbar");
+		navMenu.on("click", "a", null, function () {
+		navMenu.collapse('hide');
+		});
+	 });
+	 
     createChart();
     function createChart() {
         $('div.progress').each(function (i, obj) {
