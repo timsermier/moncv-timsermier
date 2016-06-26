@@ -1,4 +1,25 @@
 # CV - Tim Sermier
+## Table des matières
+
+ - [Installation de node.js](#Installation-de-node.js)
+ - [Installation de Yeoman](#Installation-de-Yeoman)
+ - [Création d'un nouveau projet](#Création-d'un-nouveau-projet)
+ - [Git](#Git)
+	 - [Initialisation de git](#Initialisation-de-git)
+	 - [Gestion des modifications avec git](#Gestion-des-modifications-avec-git)
+ - [Les dépendances](#Les-dépendances)
+	 - [Installation de dépendance](#Installation-de-dépendance)
+	 - [jquery-smooth-scroll](#jquery-smooth-scroll)
+	 - [bootswatch](#bootswatch)
+	 - [chart.js](#chart.js)
+ - [Bootstrap](#Bootstrap)
+	 - [Système de grille](#Système-de-grille)
+	 - [Modal](#Modal)
+	 - [progressBar](#progressBar)
+ - [IDE](#IDE)
+ - [JavaScript](#JavaScript)
+ - 
+
 ## Installation de node.js
 
 Télécharger et installer node.js (https://nodejs.org/en/).
@@ -82,11 +103,12 @@ Avant tout, insérer les éléments dont on ne veut pas gérer la version dans l
 Ensuite lors de modifications sur les fichiers du projet, taper les commandes suivantes pour commiter le tout :
 
 	- git add . --> Permet de mettre les fichiers en mode "staged"
-	- git commit -m '<message>' --> Permet de valider les modifications des fichiers, de les "commiter"...**Attention les messages du commit doivent être explicites et exprimer clairement les modifications qui ont été apportées**
+	- git commit -m '<message>' --> Permet de valider les modifications des fichiers, de les "commiter"...
+**Attention les messages du commit doivent être explicites et exprimer clairement les modifications qui ont été apportées**
 
-Pour envoyer le tout sur le dossier distant de github.com, voici la manière la plus simple de le faire :
+Pour envoyer le tout sur le dossier distant de github.com, voici la manière la plus simple de le faire (**Attention à bien être sur la branche master !!!**) :
 
-	- Sur le client lourd github, appuyer sur le bouton "sync" en haut à droite. **Attention à bien être sur la branche master !!!**
+	- Sur le client lourd github, appuyer sur le bouton "sync" en haut à droite. 
 
 Pour publier les modifications et les rendre visibles en ligne, voici la suite de commande à taper dans l'invite de commande :
 
