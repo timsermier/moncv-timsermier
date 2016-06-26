@@ -79,5 +79,19 @@ Il suffit ensuite de lancer la commande "gulp deploy" pour envoyer le contenu du
 ### Gestion des modifications avec git
 Avant tout, insérer les éléments dont on ne veut pas gérer la version dans le fichier .gitignore
 
+Ensuite lors de modifications sur les fichiers du projet, taper les commandes suivantes pour commiter le tout :
 
+	- git add . --> Permet de mettre les fichiers en mode "staged"
+	- git commit -m '<message>' --> Permet de valider les modifications des fichiers, de les "commiter"...** Attention les messages du commit doivent être explicites et exprimer clairement les modifications qui ont été apportées **
 
+Pour envoyer le tout sur le dossier distant de github.com, voici la manière la plus simple de le faire :
+
+	- Sur le client lourd github, appuyer sur le bouton "sync" en haut à droite. **Attention à bien être sur la branche master !!!**
+
+Pour publier les modifications et les rendre visibles en ligne, voici la suite de commande à taper dans l'invite de commande :
+
+	- git build --> Permet de "compiler" la branche master (racine du projet) dans le dossier "dist" (branche gh-pages)
+	- git deploy --> Permet d'envoyer le contenu du dossier "dist" dans la branche "gh-pages" sur github.com
+
+Il existe également d'autres commandes git dont voici une courte liste descriptive :
+	- git 
