@@ -94,6 +94,7 @@ Pour publier les modifications et les rendre visibles en ligne, voici la suite d
 	- git deploy --> Permet d'envoyer le contenu du dossier "dist" dans la branche "gh-pages" sur github.com
 
 Il existe également d'autres commandes git dont voici une courte liste descriptive :
+	
 	- git status --> Permet de voir le statut courant du projet
 	- git log --> Sorte de journal permettant de voir tous les commits effectués sur le projet
 	- git pull --> Permet de récupérer les modifications effectuées sur le repo en ligne (par d'autres personnes par exemple)
