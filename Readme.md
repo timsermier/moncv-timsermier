@@ -18,14 +18,15 @@
 	 - [progressBar](#progressBar)
  - [IDE](#IDE)
  - [JavaScript](#JavaScript)
- - 
 
-## Installation de node.js
+<a id="Installation-de-node.js"></a>
+## Installation de node.js 
 
 Télécharger et installer node.js (https://nodejs.org/en/).
 
 Cela permet de récupérer npm pour les étapes suivantes
 
+<a id="Installation-de-Yeoman"></a>
 ## Installation de Yeoman
 
 Dans le shell node (comme cela on est sûr que le path npm fonctionne) taper la commande suivante :
@@ -40,6 +41,7 @@ Cela va permettre d'installer les paquets suivants :
             le rafraîchissement automatique du navigateur lors de la modification de fichiers, etc...
     La commande generator-webapp permet simplement d'installer yo en mode générateur d'applications webs
 
+<a id="Création-d'un-nouveau-projet"></a>
 ## Création d'un nouveau projet
 Tout d'abord, créer un dossier "Github" dans votre répertoire "Documents"
 
@@ -52,7 +54,10 @@ Tout d'abord, créer un dossier "Github" dans votre répertoire "Documents"
     Lancer le serveur avec la commande gulp serve
 
 
+<a id="Git"></a>
 ## Git
+
+<a id="Initialisation-de-git"></a>
 ### Initialisation de git
 L'installation de git va permettre de versionner les fichiers de notre projet.
 
@@ -97,6 +102,7 @@ Il suffit ensuite de lancer la commande "gulp deploy" pour envoyer le contenu du
 
 À partir de là, les modifications seront visibles sur le site en ligne
 
+<a id="Gestion-des-modifications-avec-git"></a>
 ### Gestion des modifications avec git
 Avant tout, insérer les éléments dont on ne veut pas gérer la version dans le fichier .gitignore
 
@@ -127,6 +133,7 @@ Il existe également d'autres commandes git dont voici une courte liste descript
 	- git checkout branch --> Permet de changer de branche
 	- git rm --> Permet de supprimer des éléments
 
+<a id="Les-dépendances"></a>
 ## Les dépendances
 Voici la liste des dépendances utilisées dans ce projet :
 
@@ -134,6 +141,7 @@ Voici la liste des dépendances utilisées dans ce projet :
 	- bootswatch
 	- chart.js
 
+<a id="Installation-de-dépendance"></a>
 ### Installation de dépendance
 
 	- Tout d'abord trouver le paquet désiré
@@ -145,6 +153,7 @@ Voici la liste des dépendances utilisées dans ce projet :
 		- Pour être sûr que la dépendance s'installe bien, taper la commande :
 			- gulp wiredep
 
+<a id="jquery-smooth-scroll"></a>
 ### jquery-smooth-scroll
 L'installation du smooth scroll se fait par la commande suivante :
 	
@@ -163,7 +172,7 @@ La première ligne permet simplement d'exécuter le code une fois que la page a 
 
 Voici la page de documentation complète : https://github.com/kswedberg/jquery-smooth-scroll
 
-
+<a id="bootswatch"></a>
 ### bootswatch
 L'installation de bootswatch se fait par la commande suivante :
 
@@ -183,6 +192,7 @@ Puis cette ligne après le code bower
 	@import '../../bower_components/bootswatch/sandstone/bootswatch';
 Remplacer sandstone par le theme souhaité (une liste des thèmes est disponbile ici : https://bootswatch.com/)
 
+<a id="chart.js"></a>
 ### chart.js
 L'installation de chart.js se fait par la commande suivante :
 
@@ -229,11 +239,14 @@ Voici le code utilisé pour le chart doughnut de ce projet :
 
 Ce code est à insérer dans le bloc $(document).ready(function (){...} de main.js
 
+<a id="Bootstrap"></a>
 ## Bootstrap
 Les documentations utilisées dans le cadre de se projet se trouve ici : 
 
 	http://getbootstrap.com/getting-started/
 	http://v4-alpha.getbootstrap.com/
+	
+<a id="Système-de-grille"></a>
 ### Système de grille
 Le système de grille à 12 colonnes a été utilisé pour gérer l'affichage selon la taille de l'écran.
 
@@ -248,6 +261,7 @@ Ces adaptations en fonction de la taille de l'écran se fait principalement grâ
 	col-xs-12 --> Le bloc prend 12 colonnes même sur petits écrans
 	col-md-6 col-xs-12 --> Le bloc prend 6 colonne sur écran de taille moyenne et 12 sur petit écran
 
+<a id="Modal"></a>
 ### Modal
 Lors de click sur les graphes, un modal affichant le détail des compétences s'affiche.
 
@@ -269,7 +283,8 @@ Puis créer les modals de cette manière
 	        </div>
 	    </div>
 	</div>
-                        
+      
+<a id="progressBar"></a>                  
 ### progressBar
 Si le javascript ne fonctionne pas, l'élément de base est une progressBar bootstrap.
 	Voici comment cette dernière s'implémente :
@@ -282,6 +297,7 @@ Si le javascript ne fonctionne pas, l'élément de base est une progressBar boot
 La valeur de la progressBar est simplement définie dans l'attribut aria-valuenow
 	Le label qui s'affichera à l'écran est le texte entre les balises div progress-bar
 	 
+<a id="IDE"></a>       
 ## IDE
 Yo rafraîchissant directement la page, le choix de l'IDE s'est basé sur des critères comme l'auto-complétion, l'indentation automatique et la détection automatique des erreurs.
 
@@ -289,6 +305,7 @@ Ainsi, NetBeans s'est révélé être parfait pour ce rôle-ci.
 
 Il a également utilisé l'outil de développement Chrome qui, une fois mappé au dossier local, permet de faire des modifications directement dans le navigateur Web.
 
+<a id="JavaScript"></a>       
 ##JavaScript
 Comme vu précédemment, JavaScript a principalement été utilisé pour générer les graphes.
 
