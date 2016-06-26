@@ -1,6 +1,5 @@
 $icon-font-path: '../fonts/';
 
-// add this before the bower injector
 @import '../../bower_components/bootswatch/cerulean/variables';
 $icon-font-path: "../../bower_components/bootstrap-sass/assets/fonts/bootstrap/";
 
@@ -8,6 +7,7 @@ $icon-font-path: "../../bower_components/bootstrap-sass/assets/fonts/bootstrap/"
 // bower:scss
 @import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 // endbower
+
 @import '../../bower_components/bootswatch/cerulean/bootswatch';
 .table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
     background-color: #BFD7E1;
